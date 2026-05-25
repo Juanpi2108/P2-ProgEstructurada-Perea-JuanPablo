@@ -91,12 +91,40 @@ def simular_metricas_entrenamiento(cantidad_epochs):
     return lista_loss, lista_latencias
 
 
-def analizar_rendimiento(lista_loss):
-    pass
+def analizar_rendimiento(lista_loss, lista_latencias):
+    print("\n=== ANÁLISIS DE RENDIMIENTO ===")
+
+    promedio_loss = statistics.mean(lista_loss)
+
+    desviacion_loss = statistics.stdev(lista_loss)
+
+    mediana_latencia = statistics.median(lista_latencias)
+
+    print("Promedio de loss:", round(promedio_loss, 4))
+
+    print("Desviación estándar:", round(desviacion_loss, 4))
+
+    print("Mediana de latencia:", round(mediana_latencia, 4))
 
 
 def calcular_rmse(predicciones, reales):
-    pass
+    suma = 0
+
+    for i in range(len(predicciones)):
+        diferencia = predicciones[i] - reales[i]
+        cuadrado = math.pow(diferencia, 2)
+        suma = suma + cuadrado
+    promedio = suma / len(predicciones)
+
+    rmse = math.sqrt(promedio)
+
+    epochs_redondeados = math.ceil(rmse)
+
+    print("\n=== CÁLCULO RMSE ===")
+
+    print("RMSE:", round(rmse, 4))
+
+    print("RMSE redondeado:", epochs_redondeados)
 
 
 # ==========================================
