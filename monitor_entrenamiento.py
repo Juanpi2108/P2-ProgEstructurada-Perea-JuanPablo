@@ -27,11 +27,25 @@ UMBRAL_ERROR_CRITICO = 0.95
 # ==========================================
 
 def obtener_info_sistema():
-    pass
+    print("\n=== INFORMACIÓN DEL SISTEMA ===")
+
+    print("Plataforma:", sys.platform)
+
+    print("Versión de Python:", sys.version)
+
+    print("Argumentos del sistema:", sys.argv)
 
 
 def simular_metricas_entrenamiento(cantidad_epochs):
-    pass
+    lista_loss = []
+    lista_latencias = []
+
+    inicio = datetime.datetime.now()
+
+    print("\nHora de inicio:",
+          inicio.strftime("%d/%m/%Y %H:%M:%S"))
+
+    return lista_loss, lista_latencias
 
 
 def analizar_rendimiento(lista_loss):
