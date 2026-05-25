@@ -132,4 +132,42 @@ def calcular_rmse(predicciones, reales):
 # ==========================================
 
 if __name__ == "__main__":
-    print("=== INICIANDO SIMULADOR ===")
+    print("=== INICIANDO SIMULADOR DE AGENTES DE IA ===")
+
+    obtener_info_sistema()
+
+    lista_loss, lista_latencias = simular_metricas_entrenamiento(MAX_EPOCHS)
+
+    analizar_rendimiento(lista_loss, lista_latencias)
+
+    predicciones = [0.90, 0.85, 0.78, 0.95, 0.88]
+
+    reales = [1.00, 0.80, 0.75, 1.00, 0.90]
+
+    calcular_rmse(predicciones, reales)
+
+    print("\n=== PROCESO FINALIZADO ===")
+
+    """
+CUESTIONARIO DE ANÁLISIS DE BIBLIOTECAS
+
+1. Uso de Objetos y Métodos:
+En datetime.datetime.now(), el objeto o clase es datetime y el método es
+now(). La biblioteca datetime permite trabajar con fechas y horas.
+
+2. Diferenciación Técnica:
+Con import math se utiliza math.sqrt().
+Con from math import sqrt se utiliza solamente sqrt().
+
+3. Flujo y Lógica:
+Primero se generan los datos de entrenamiento y después se envían
+a las funciones de análisis y cálculo RMSE.
+
+4. Mapeo de Tipos de Datos:
+Se utilizaron listas para guardar los valores de loss y latencias,
+porque permiten almacenar múltiples datos.
+
+5. Autoevaluación de Abstracción:
+No fue necesario programar la fórmula matemática de la desviación estándar
+porque la biblioteca statistics ya la proporciona.
+"""
